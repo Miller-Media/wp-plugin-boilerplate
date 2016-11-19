@@ -1,0 +1,11 @@
+{
+    "name": "millermedia/boilerplate",
+    "description": "Wordpress Boilerplate Plugin",
+    "type": "project",
+    "require": {},
+	"autoload": {
+		"psr-4": {
+		  "MillerMedia\\Boilerplate\\": "lib/"
+		}
+	}
+}

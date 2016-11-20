@@ -28,10 +28,13 @@ if ( ! class_exists( 'BoilerplatePlugin' ) )
 			$settings = \MillerMedia\Boilerplate\Settings::instance();
 			$plugin->addSettings( $settings );
 			
-			/* Connect plugin modules to wordpress core */
-			$wordpress = \Modern\Wordpress\WordpressAPI::instance()
+			/* Connect plugin modules to Modern Wordpress Framework */
+			$framework = \Modern\Wordpress\Framework::instance()
 				->attach( $plugin )
 				->attach( $settings );
+			
+			/* Enable Widgets */
+			\MillerMedia\Boilerplate\BasicWidget::enableOn( $plugin );
 		}
 	}
 	

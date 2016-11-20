@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @Wordpress\Options
  * @Wordpress\Options\Section( title="General Settings" )
  * @Wordpress\Options\Field( name="setting1", type="text", title="Setting 1" )
- * @Wordpress\Options\Field( name="setting2", type="select", options={ "opt1":"Option1", "opt2": "Option2" } )
- * @Wordpress\Options\Field( name="setting3", type="select", options="optionsCallback" )
+ * @Wordpress\Options\Field( name="setting2", type="select", title="Setting 2", options={ "opt1":"Option1", "opt2": "Option2" } )
+ * @Wordpress\Options\Field( name="setting3", type="select", title="Setting 3", options="optionsCallback" )
  */
 class Settings extends \Modern\Wordpress\Plugin\Settings
 {
@@ -36,7 +36,8 @@ class Settings extends \Modern\Wordpress\Plugin\Settings
 	 */ 
 	public function optionsCallback( $currentValue )
 	{
-		return array(
+		return array
+		(
 			'opt3' => 'Option 3',
 			'opt4' => 'Option 4',
 		);

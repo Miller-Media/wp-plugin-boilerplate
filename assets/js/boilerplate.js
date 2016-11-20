@@ -10,26 +10,30 @@ use "strict";
  * Module Design Pattern
  */
 (function( $, undefined ) {
-	var myPlugin = (function() {
-		var self = this;
-		
-		/* Protect localized data */
-		//self.data = plugin_localized_object;
+	var myModule = (function() {
 		
 		/**
-		 * Plugin Class 
+		 * @var	this
 		 */
-		$.extend( self, {
+		var $this = this;
+		
+		/**
+		 * Data passed by backend
+		 *
+		 * @var object/array	
+		 * .ajaxurl [WP Ajax Endpoint]
+		 */
+		$this.local = mw_localized_data;
+		
+		/**
+		 * Module Methods 
+		 */
+		$.extend( $this, {
 			
-			/**
-			 * Initialize
-			 *
-			 * @return	void
-			 */
 			init: function()
 			{
-				// Call internal class methods like so...
-				self.doSomething();
+				// Kick off page processing...
+				$this.doSomething();
 			},
 			
 			/**
@@ -46,7 +50,7 @@ use "strict";
 	})();
 	
 	/* Initialize when document is ready */
-	$( document ).ready( myPlugin.init );
+	$( document ).ready( myModule.init );
 	
 })( jQuery );
  

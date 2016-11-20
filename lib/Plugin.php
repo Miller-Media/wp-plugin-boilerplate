@@ -12,29 +12,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Plugin extends \Modern\Wordpress\Plugin
 {
 	/**
-	 * @var string
-	 */
-	public $name = 'Boilerplate Plugin';
-	
-	/**
-	 * Instance Cache - Required for singleton
+	 * Instance Cache - Required
 	 * @var	self
 	 */
 	protected static $_instance;
 	
 	/**
-	 * Class Properties
+	 * @var string		Plugin Name
+	 */
+	public $name = 'Boilerplate Plugin';
+	
+	/**
+	 * Plugin Properties
 	 *
 	 * Post Type: array			[@]Wordpress\PostType( name="posttype" )
+	 * Javascript File:			[@]Wordpress\Script()
+	 * Stylesheet:				[@]Wordpress\Style()
 	 */
 	public $property;
 	
 	/**
-	 * Class Methods
+	 * Plugin Methods
 	 * 
 	 * Action Callback: 		[@]Wordpress\Action( for="action_name", priority=int, args=int )
 	 * Filter Callback: 		[@]Wordpress\Filter( for="filter_name" )
 	 * Shortcode Callback:		[@]Wordpress\Shortcode( name="short_code" )
+	 * Ajax Handler:			[@]Wordpress\AjaxHandler()
 	 */
 	public function callback() 
 	{

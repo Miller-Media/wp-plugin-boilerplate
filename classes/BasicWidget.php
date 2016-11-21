@@ -8,9 +8,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Widget Class
- *
- * @Wordpress\Widget
- * @Wordpress\WidgetSetting( name="title", title="Widget Title", type="text" )
  */
 class BasicWidget extends \Modern\Wordpress\Plugin\Widget
 {

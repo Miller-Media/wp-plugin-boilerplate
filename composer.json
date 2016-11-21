@@ -5,7 +5,7 @@
     "require": {},
 	"autoload": {
 		"psr-4": {
-		  "MillerMedia\\Boilerplate\\": "lib/"
+		  "MillerMedia\\Boilerplate\\": "classes/"
 		}
 	}
 }

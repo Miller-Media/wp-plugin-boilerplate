@@ -29,7 +29,8 @@ class Settings extends \Modern\Wordpress\Plugin\Settings
 	public $key = 'main';
 	
 	/**
-	 * Settings Field Options Generator
+	 * Example Options Generator
+	 * @see: class annotation for setting3
 	 *
 	 * @param		mixed			$currentValue				Current settings value
 	 * @return		array

@@ -23,24 +23,26 @@ class Plugin extends \Modern\Wordpress\Plugin
 	public $name = 'Boilerplate Plugin';
 	
 	/**
-	 * Plugin Properties
+	 * Main Stylesheet
 	 *
-	 * Post Type: array			[@]Wordpress\PostType( name="posttype" )
-	 * Javascript File:			[@]Wordpress\Script()
-	 * Stylesheet:				[@]Wordpress\Style()
+	 * @Wordpress\Style
 	 */
-	public $property;
+	public $mainStyle = 'assets/css/style.css';
 	
 	/**
-	 * Plugin Methods
-	 * 
-	 * Action Callback: 		[@]Wordpress\Action( for="action_name", priority=int, args=int )
-	 * Filter Callback: 		[@]Wordpress\Filter( for="filter_name" )
-	 * Shortcode Callback:		[@]Wordpress\Shortcode( name="short_code" )
-	 * Ajax Handler:			[@]Wordpress\AjaxHandler()
+	 * Main Javascript Module
+	 *
+	 * @Wordpress\Script
 	 */
-	public function callback() 
+	public $mainScript = 'assets/js/module.js';
+	
+	/**
+	 * @Wordpress\Action( for="init" )
+	 */
+	public function pluginInit()
 	{
-		
+		$this->useStyle( $this->mainStyle );
+		$this->useScript( $this->mainScript );
 	}
+	
 }

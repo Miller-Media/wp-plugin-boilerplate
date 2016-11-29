@@ -1,6 +1,6 @@
 {
     "name": "millermedia/boilerplate",
-    "description": "Wordpress Boilerplate Plugin",
+    "description": "{plugin_name}",
     "type": "project",
     "require": {},
 	"autoload": {

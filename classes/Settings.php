@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * Settings Class File
+ *
+ * @vendor: {vendor_name}
+ * @package: {plugin_name}
+ * @author: {plugin_author}
+ * @link: {plugin_author_url}
+ * @since: {date_time}
+ */
 namespace MillerMedia\Boilerplate;
 
 if ( ! defined( 'ABSPATH' ) ) {

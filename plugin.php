@@ -1,13 +1,13 @@
 <?php
-/*
- * Plugin Name: Boilerplate Wordpress Plugin
+/**
+ * Plugin Name: {plugin_name}
  * Depends: lib-modern-wordpress
- * Description: A boiler-plate plugin skeleton based on the modern wordpress plugin framework
- * Version: 0.1
- * Author: Kevin Carwile (Miller Media)
- * Author URI: http://www.millermedia.io
+ * Description: {plugin_description}
+ * Version: 0.0.1
+ * Author: {plugin_author}
+ * Author URI: {plugin_author_url}
  */
-
+ 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Access denied.' );
 }

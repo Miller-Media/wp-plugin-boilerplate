@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * Widget Class File
+ *
+ * @vendor: {vendor_name}
+ * @package: {plugin_name}
+ * @author: {plugin_author}
+ * @link: {plugin_author_url}
+ * @since: {date_time}
+ */
 namespace MillerMedia\Boilerplate;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,14 +29,14 @@ class BasicWidget extends \Modern\Wordpress\Plugin\Widget
 	 *
 	 * @var	string
 	 */
-	public $name = 'Boilerplate Widget';
+	public $name = '{plugin_name} Widget';
 	
 	/**
 	 * Widget Description
 	 *
 	 * @var	string
 	 */
-	public $description = 'A simple boilerplate wordpress widget';
+	public $description = 'An example modern wordpress widget';
 	
 	/**
 	 * Widget Settings
@@ -37,7 +45,7 @@ class BasicWidget extends \Modern\Wordpress\Plugin\Widget
 	 */
 	public $settings = array
 	(
-		'title' 	=> array( 'title' => 'Widget Title', 'type' => 'text', 'default' => 'Boilerplate Widget' ),
+		'title' 	=> array( 'title' => 'Widget Title', 'type' => 'text', 'default' => '{plugin_name} Widget' ),
 		'content' 	=> array( 'title' => 'Widget Content', 'type' => 'textarea' ),
 	);
 
@@ -46,7 +54,7 @@ class BasicWidget extends \Modern\Wordpress\Plugin\Widget
 	 * 
 	 * @var string
 	 */
-	public $classname = 'boilerplate-widget';
+	public $classname = '{plugin_dir}-widget';
 	
 	/**
 	 * Output the widget content.

@@ -33,7 +33,7 @@ class Plugin extends \Modern\Wordpress\Plugin
 	/**
 	 * Main Stylesheet
 	 *
-	 * @Wordpress\Style
+	 * @Wordpress\Stylesheet
 	 */
 	public $mainStyle = 'assets/css/style.css';
 	

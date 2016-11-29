@@ -3,8 +3,8 @@
  * Plugin HTML Template
  *
  * @package: {plugin_name}
- * @author: {plugin_author}
- * @since: {date_time}
+ * @author:  {plugin_author}
+ * @since:   {date_time}
  *
  * @example:
  * $content = $plugin->getTemplateContent( 'snippet', array( 'title' => 'Some Custom Title', 'content' => 'Some custom content' ) );

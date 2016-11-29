@@ -1,9 +1,9 @@
 /**
- * Javascript Module
+ * Plugin Javascript Module
  *
- * @package 	Boilerplate Wordpress Plugin
- * @author 		Kevin Carwile (Miller Media)
- * @since		Nov 2016
+ * @package    {plugin_name}
+ * @author     {plugin_author}
+ * @since      {date_time}
  */
 
 "use strict";

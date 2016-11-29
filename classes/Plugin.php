@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * Plugin Class File
+ *
+ * @vendor: {vendor_name}
+ * @package: {plugin_name}
+ * @author: {plugin_author}
+ * @link: {plugin_author_url}
+ * @since: {date_time}
+ */
 namespace MillerMedia\Boilerplate;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,7 +28,7 @@ class Plugin extends \Modern\Wordpress\Plugin
 	/**
 	 * @var string		Plugin Name
 	 */
-	public $name = 'Boilerplate Plugin';
+	public $name = '{plugin_name}';
 	
 	/**
 	 * Main Stylesheet

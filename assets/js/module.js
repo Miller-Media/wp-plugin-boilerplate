@@ -58,7 +58,8 @@
 			console.log( 'Hello Harry!' );
 		}
 		
-	});	};
+		});
+	};
 	
 	/* Initialize when document is ready */
 	$( document ).ready( thisModule.init );

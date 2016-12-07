@@ -2,7 +2,9 @@
 /**
  * Uninstall Script
  *
- * Plugin Name: {plugin_name}
+ * @package 	{plugin_name}
+ * @author	{plugin_author}
+ * @since	{date_time}
  */
  
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) or ! WP_UNINSTALL_PLUGIN ) {

@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: {plugin_name}
- * Depends: lib-modern-wordpress
+ * Depends: lib-modern-framework
  * Description: {plugin_description}
  * Version: 0.0.1
  * Author: {plugin_author}
@@ -42,7 +42,7 @@ if ( ! class_exists( 'BoilerplatePlugin' ) )
 			if ( ! class_exists( 'ModernWordpressFramework' ) ) {
 				echo '<td colspan="3" class="plugin-update colspanchange">
 						<div class="update-message notice inline notice-error notice-alt">
-							<p><strong style="color:red">INOPERABLE.</strong> Please activate the <strong>Modern Wordpress Plugin Framework</strong> to enable the operation of this plugin.</p>
+							<p><strong style="color:red">INOPERABLE.</strong> Please activate the <strong>Modern Framework for Wordpress</strong> plugin to enable the operation of this plugin.</p>
 						</div>
 					  </td>';
 			}

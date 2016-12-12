@@ -1,9 +1,11 @@
 /**
  * Plugin Javascript Module
  *
+ * Created     {date_time}
+ *
  * @package    {plugin_name}
  * @author     {plugin_author}
- * @since      {date_time}
+ * @since      {build_version}
  */
 
 "use strict";

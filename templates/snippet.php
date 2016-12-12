@@ -2,9 +2,11 @@
 /**
  * Plugin HTML Template
  *
- * @package: {plugin_name}
- * @author:  {plugin_author}
- * @since:   {date_time}
+ * Created:  {date_time}
+ *
+ * @package  {plugin_name}
+ * @author   {plugin_author}
+ * @since    {build_version}
  *
  * @example:
  * $content = $plugin->getTemplateContent( 'snippet', array( 'title' => 'Some Custom Title', 'content' => 'Some custom content' ) );
@@ -12,7 +14,7 @@
  * @param	string		$title		The provided title
  * @param	string		$content	The provided content
  */
- 
+
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Access denied.' );
 }

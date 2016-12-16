@@ -8,8 +8,10 @@
  * @author   {plugin_author}
  * @since    {build_version}
  *
- * @example:
- * $content = $plugin->getTemplateContent( 'snippet', array( 'title' => 'Some Custom Title', 'content' => 'Some custom content' ) );
+ * # EXAMPLE
+ * # $content = $plugin->getTemplateContent( 'snippet', array( 'title' => 'Some Custom Title', 'content' => 'Some custom content' ) ); 
+ *
+ * @param	Plugin		$this		The plugin instance which is loading this template
  *
  * @param	string		$title		The provided title
  * @param	string		$content	The provided content

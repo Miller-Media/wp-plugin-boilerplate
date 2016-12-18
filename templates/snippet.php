@@ -8,9 +8,12 @@
  * @author   {plugin_author}
  * @since    {build_version}
  *
- * # EXAMPLE
- * # $content = $plugin->getTemplateContent( 'snippet', array( 'title' => 'Some Custom Title', 'content' => 'Some custom content' ) ); 
- *
+ * Here is an example of how to get the contents of this template while 
+ * providing the values of the $title and $content variables:
+ * ```
+ * $content = $plugin->getTemplateContent( 'snippet', array( 'title' => 'Some Custom Title', 'content' => 'Some custom content' ) ); 
+ * ```
+ * 
  * @param	Plugin		$this		The plugin instance which is loading this template
  *
  * @param	string		$title		The provided title

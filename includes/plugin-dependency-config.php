@@ -11,10 +11,11 @@ add_action( 'tgmpa_register', function()
 	$base_dir = dirname( dirname( __FILE__ ) );
 	$dependencies = array(
 		array( 
-			'name'     => 'Modern Framework for Wordpress',
-			'slug'     => 'modern-framework',
-			'source'   => 'https://github.com/Miller-Media/modern-wordpress/raw/master/builds/modern-framework-latest-stable.zip',
-			'required' => true,
+			'name'             => 'Modern Framework for Wordpress',
+			'slug'             => 'modern-framework',
+			'source'           => 'https://github.com/Miller-Media/modern-wordpress/raw/master/builds/modern-framework-latest-stable.zip',
+			'required'         => true,
+			'force_activation' => true,
 		),
 	);
 	
@@ -38,7 +39,7 @@ add_action( 'tgmpa_register', function()
 		'parent_slug'  => 'plugins.php',
 		'capability'   => 'manage_options',
 		'has_notices'  => true,
-		'dismissable'  => true,
+		'dismissable'  => false,
 		'is_automatic' => true,
 		'strings'      => array(
 			'notice_can_install_required'     => _n_noop(

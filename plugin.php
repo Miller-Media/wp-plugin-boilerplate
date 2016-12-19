@@ -15,8 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /* Load Only Once */
 if ( ! class_exists( 'BoilerplatePlugin' ) )
 {
+	/* Autoloader */
 	require_once 'vendor/autoload.php';
 
+	/* Register plugin dependencies */
+	include_once 'includes/plugin-dependency-config.php';
+	
 	class BoilerplatePlugin
 	{
 		public static function init()
@@ -43,15 +47,12 @@ if ( ! class_exists( 'BoilerplatePlugin' ) )
 			if ( ! class_exists( 'ModernWordpressFramework' ) ) {
 				echo '<td colspan="3" class="plugin-update colspanchange">
 						<div class="update-message notice inline notice-error notice-alt">
-							<p><strong style="color:red">INOPERABLE.</em> Please activate the <em>Modern Framework for Wordpress</em> plugin to enable the operation of this plugin.</p>
+							<p><strong style="color:red">INOPERABLE.</strong> Please activate <a href="' . admin_url( 'plugins.php?page=tgmpa-install-plugins' ) . '"><strong>Modern Framework for Wordpress</strong></a> to enable the operation of this plugin.</p>
 						</div>
 					  </td>';
 			}
 		}
 	}
-	
-	/* Register plugin dependencies */
-	include_once 'includes/plugin-dependency-config.php';
 	
 	/* Register plugin status notice */
 	add_action( 'after_plugin_row_' . plugin_basename( __FILE__ ), array( 'BoilerplatePlugin', 'status' ) );

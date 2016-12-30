@@ -40,7 +40,7 @@ class Plugin extends \Modern\Wordpress\Plugin
 	/**
 	 * Main Javascript Module
 	 *
-	 * @Wordpress\Script( deps={"jquery"} )
+	 * @Wordpress\Script( deps={"mwp"} )
 	 */
 	public $mainScript = 'assets/js/module.js';
 	

@@ -12,59 +12,51 @@
 
 /**
  * Module Design Pattern
+ *
+ * Note: This pattern requires the script to have a dependency on the "mwp" script
  */
 (function( $, undefined ) {
 	
-	var thisModule = new function() {
+	/**
+	 * Main Module
+	 *
+	 * The init() function is called after the page is fully loaded.
+	 *
+	 * Data passed into your script from the server side is available
+	 * by the this.local property inside your module:
+	 *
+	 * (i.e.) var ajaxurl = this.local.ajaxurl;
+	 *
+	 * The viewModel of your module will be bound to any HTML structure
+	 * which uses the data-view-model attribute and names this module.
+	 *
+	 * Example:
+	 *
+	 * <div data-view-model="{plugin_slug}">
+	 *   <span data-bind="text: title"></span>
+	 * </div>
+	 */
+	var thisModule = mwp.module( '{plugin_slug}', 
+	{
 		
 		/**
-		 * @var	Module Global "this"
-		 */
-		var $this = this;
-		
-		/**
-		 * Data passed by backend
-		 *
-		 * @var object/array	
-		 * .ajaxurl [WP Ajax Endpoint]
-		 */
-		$this.local = mw_localized_data;
-		
-		/**
-		 * Named module variable
-		 * 
-		 * @var  
-		 */
-		$this.namedVar = null;
-		
-		
-		/**
-		 * Main Module Init (runs after page is loaded)
+		 * Initialization function
 		 *
 		 * @return	void
 		 */
-		$.extend( $this, {
 		init: function()
 		{
-			// Now we can do stuff like attach our methods to the DOM
-			$( document ).on( 'sasquatch.spotted', $this.doSomething );
-		},
-		
-		/**
-		 * Example module method
-		 *
-		 * @return void
-		 */
-		doSomething()
-		{
-			console.log( 'Hello Harry!' );
+			// ajax actions can be made to the ajaxurl, which is automatically provided to your module
+			var ajaxurl = thisModule.local.ajaxurl;
+			
+			// set the properties on your view model which can be observed by your html templates
+			thisModule.viewModel = {
+				title: ko.observable( 'View Title' )
+			}
 		}
-		
-		});
-	};
 	
-	/* Initialize when document is ready */
-	$( document ).ready( thisModule.init );
+	});
+		
 	
 })( jQuery );
  

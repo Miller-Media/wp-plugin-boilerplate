@@ -3,7 +3,7 @@
  * Plugin Name: {plugin_name}
  * Depends: lib-modern-framework
  * Description: {plugin_description}
- * Version: 0.0.1
+ * Version: 0.0.0
  * Author: {plugin_author}
  * Author URI: {plugin_author_url}
  */
@@ -15,8 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /* Load Only Once */
 if ( ! class_exists( 'BoilerplatePlugin' ) )
 {
+	/* Autoloader */
 	require_once 'vendor/autoload.php';
 
+	/* Register plugin dependencies */
+	include_once 'includes/plugin-dependency-config.php';
+	
 	class BoilerplatePlugin
 	{
 		public static function init()
@@ -32,7 +36,8 @@ if ( ! class_exists( 'BoilerplatePlugin' ) )
 			/* Connect annotated resources to wordpress core */
 			$framework = \Modern\Wordpress\Framework::instance()
 				->attach( $plugin )
-				->attach( $settings );
+				->attach( $settings )
+				;
 			
 			/* Enable Widgets */
 			\MillerMedia\Boilerplate\BasicWidget::enableOn( $plugin );
@@ -42,20 +47,21 @@ if ( ! class_exists( 'BoilerplatePlugin' ) )
 			if ( ! class_exists( 'ModernWordpressFramework' ) ) {
 				echo '<td colspan="3" class="plugin-update colspanchange">
 						<div class="update-message notice inline notice-error notice-alt">
-							<p><strong style="color:red">INOPERABLE.</strong> Please activate the <strong>Modern Framework for Wordpress</strong> plugin to enable the operation of this plugin.</p>
+							<p><strong style="color:red">INOPERABLE.</strong> Please activate <a href="' . admin_url( 'plugins.php?page=tgmpa-install-plugins' ) . '"><strong>Modern Framework for Wordpress</strong></a> to enable the operation of this plugin.</p>
 						</div>
 					  </td>';
 			}
 		}
 	}
 	
+	/* Register plugin status notice */
 	add_action( 'after_plugin_row_' . plugin_basename( __FILE__ ), array( 'BoilerplatePlugin', 'status' ) );
 	
 	/**
 	 * DO NOT REMOVE
 	 *
 	 * This plugin depends on the modern wordpress framework.
-	 * This block ensures that it is loaded before we proceed.
+	 * This block ensures that it is loaded before we init.
 	 */
 	if ( class_exists( 'ModernWordpressFramework' ) ) {
 		BoilerplatePlugin::init();
@@ -63,7 +69,6 @@ if ( ! class_exists( 'BoilerplatePlugin' ) )
 	else {
 		add_action( 'modern_wordpress_init', array( 'BoilerplatePlugin', 'init' ) );
 	}
-	
 	
 }
 

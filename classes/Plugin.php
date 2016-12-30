@@ -45,9 +45,13 @@ class Plugin extends \Modern\Wordpress\Plugin
 	public $mainScript = 'assets/js/module.js';
 	
 	/**
-	 * @Wordpress\Action( for="init" )
+	 * Enqueue scripts and stylesheets
+	 * 
+	 * @Wordpress\Action( for="wp_enqueue_scripts" )
+	 *
+	 * @return	void
 	 */
-	public function pluginInit()
+	public function enqueueScripts()
 	{
 		$this->useStyle( $this->mainStyle );
 		$this->useScript( $this->mainScript );

@@ -24,7 +24,7 @@
 	 * The init() function is called after the page is fully loaded.
 	 *
 	 * Data passed into your script from the server side is available
-	 * by the this.local property inside your module:
+	 * by the thisModule.local property inside your module:
 	 *
 	 * > var ajaxurl = thisModule.local.ajaxurl;
 	 *

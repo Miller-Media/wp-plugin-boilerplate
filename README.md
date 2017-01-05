@@ -1,5 +1,7 @@
 # Plugin Boilerplate
 
+* Crash course
+* Files structure
 * Using templates
 * Using settings
 * Using widgets

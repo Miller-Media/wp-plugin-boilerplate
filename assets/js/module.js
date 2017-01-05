@@ -13,7 +13,8 @@
 /**
  * Module Design Pattern
  *
- * Note: This pattern requires the script to have a dependency on the "mwp" script
+ * Note: This pattern requires your script to have a dependency on the "mwp" script
+ * i.e. @Wordpress\Script( deps={"mwp"} )
  */
 (function( $, undefined ) {
 	
@@ -25,7 +26,7 @@
 	 * Data passed into your script from the server side is available
 	 * by the this.local property inside your module:
 	 *
-	 * (i.e.) var ajaxurl = this.local.ajaxurl;
+	 * > var ajaxurl = thisModule.local.ajaxurl;
 	 *
 	 * The viewModel of your module will be bound to any HTML structure
 	 * which uses the data-view-model attribute and names this module.
@@ -50,8 +51,9 @@
 			var ajaxurl = thisModule.local.ajaxurl;
 			
 			// set the properties on your view model which can be observed by your html templates
-			thisModule.viewModel = {
-				title: ko.observable( 'View Title' )
+			thisModule.viewModel = 
+			{
+				title: ko.observable( '{plugin_name}' )
 			}
 		}
 	

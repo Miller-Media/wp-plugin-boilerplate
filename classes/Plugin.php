@@ -38,11 +38,11 @@ class Plugin extends \Modern\Wordpress\Plugin
 	public $mainStyle = 'assets/css/style.css';
 	
 	/**
-	 * Main Javascript Module
+	 * Main Javascript Controller
 	 *
 	 * @Wordpress\Script( deps={"mwp"} )
 	 */
-	public $mainScript = 'assets/js/module.js';
+	public $mainScript = 'assets/js/main.js';
 	
 	/**
 	 * Enqueue scripts and stylesheets

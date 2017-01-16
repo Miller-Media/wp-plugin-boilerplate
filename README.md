@@ -8,4 +8,6 @@ Welcome to the boilerplate plugin using Modern Wordpress. This boilerplate can b
 * Using widgets
 * Using javascript modules
 * Using database records
+* Using task queues
+* Persistent plugin data caching
 * Plugin convenience methods

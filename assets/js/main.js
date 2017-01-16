@@ -13,7 +13,7 @@
 /**
  * Controller Design Pattern
  *
- * Note: This pattern requires your script to have a dependency on the "mwp" script
+ * Note: This pattern has a dependency on the "mwp" script
  * i.e. @Wordpress\Script( deps={"mwp"} )
  */
 (function( $, undefined ) {

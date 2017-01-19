@@ -1,6 +1,17 @@
 # Plugin Boilerplate
 Welcome to the boilerplate plugin using Modern Wordpress. This boilerplate can be automatically downloaded and customized for your new project using the WP CLI. Visit the [Modern Wordpress project](https://github.com/Miller-Media/modern-wordpress) page for quick start instructions. 
 
+* [Using PHP Classes](#php-classes)
+* [Using templates](#html-templating)
+* [Using settings](#plugin-settings)
+* Using widgets
+* [Using stylesheets and scripts](#stylesheets-and-scripts)
+* [Using javascript modules](#javascript-module-programming)
+* [Using database records](#database-records)
+* Using task queues
+* Persistent plugin data caching
+* Plugin convenience methods
+
 # Rundown
 * All of your plugin classes will be namespaced with your **\VendorName\PackageName** prefix.
 * The modern wordpress framework can be accessed using `$mwp = \Modern\Wordpress\Framework::instance();`

@@ -90,7 +90,7 @@ $setting_value = $this->getPlugin()->getSetting( 'setting1' );
 
 if ( $setting_value == 'Hello Dollie.' ) {
     /* Manually save a new setting */
-    $this->getPlugin()->setSetting( 'setting1', 'Hello Dandy.' );
+    $this->getPlugin()->setSetting( 'setting2', 'Hello Dandy.' );
     $this->getPlugin()->getSettings()->saveSettings();
 }
 ```

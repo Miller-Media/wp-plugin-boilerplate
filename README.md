@@ -275,11 +275,15 @@ $new_record_id = $record->id;
 
 // Load a record
 $some_id = 2;
-$otherRecord = \VendorName\PackageName\TableData::load( $some_id );
-if ( $otherRecord !== NULL ) {
+try {
+    $otherRecord = \VendorName\PackageName\TableData::load( $some_id );
     $otherRecord->salutation = "Hola";
     $otherRecord->name = "Amigo.";
     $otherRecord->save();
+}
+catch( \OutOfRangeException $e )
+{
+    // record does not exist...
 }
 
 // Load specific records

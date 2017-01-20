@@ -1,7 +1,7 @@
 # Plugin Boilerplate
 Welcome to the boilerplate plugin using Modern Wordpress. This boilerplate can be automatically downloaded and customized for your new project using the WP CLI. Visit the [Modern Wordpress project](https://github.com/Miller-Media/modern-wordpress) page for quick start instructions. 
 
-* [Using PHP Classes](#php-classes)
+* [Creating PHP Classes](#php-classes)
 * [Using templates](#html-templating)
 * [Using settings](#plugin-settings)
 * Using widgets
@@ -18,7 +18,7 @@ Welcome to the boilerplate plugin using Modern Wordpress. This boilerplate can b
 * Wordpress annotated methods on objects will only be attached to wordpress core when you do this:<br> `$mwp->attach( $objectInstance );`
 
 ## PHP Classes
-When it's time to create a new class to put code in, simply add it to your plugin using the WP CLI like so:
+Plugin components should be logically separated into classes at some point. To add a new class to your plugin using the WP CLI, use the following command:
 
 ```
 $ wp mwp add-class myplugin-slug ClassName
@@ -35,6 +35,25 @@ $shinyNewObject = new \VendorName\PackageName\ClassName();
 ```php
 $framework = \Modern\Wordpress\Framework::instance();
 $framework->attach( $shinyNewObject );
+```
+
+### Singletons
+If you want to implement your class using the singleton design pattern in order to make sure that only one copy of your object is ever instantiated, simply extend the `\Modern\Wordpress\Pattern\Singleton` base class and define a `$_instance` property for your class.
+```php
+namespace VendorName\PackageName;
+
+class MyClass extends \Modern\Wordpress\Pattern\Singleton
+{
+    /**
+     * @var object	All singletons must define this property
+     */
+    protected $_instance;
+}
+```
+
+Then to access your singleton instance from anywhere, use:
+```php
+$myObject = \VendorName\PackageName\MyClass::instance();
 ```
 
 ## HTML Templating

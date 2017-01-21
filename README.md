@@ -332,7 +332,7 @@ $config = array
 );
 
 // Data to be passed into your callback hook when the task is ran
-$data = array( 'times_to_run' => 100 );
+$data = array( 'bottles_of_beer' => 99 );
 
 // Setup the task runner
 Task::queueTask( $config, $data );
@@ -357,6 +357,35 @@ Task::deleteTasks( 'my_task_action', 'unwanted_task_id' );
 ```
 
 When a task is ran, the action you specified in your task configuration is triggered via wordpress core. Therefore, any functions you have attached to it will be executed with the only parameter being the `$task` object.
+
+```php
+class MyClass
+{
+	/** 
+	 * @Wordpress\Action( for="my_task_action" )
+	 */
+	public function myTaskRunner( $task )
+	{
+		$data = $task->data;
+		
+		// if we have no more
+		if ( $data[ 'bottles_of_beer' ] <= 0 ) {
+			return $task->complete();
+		}
+		
+		$data[ 'bottles_of_beer' ] = $this->drinkSome( $data[ 'bottles_of_beer' ] );
+		
+		$task->data = $data;
+		return;
+	}
+	
+	public function drinkSome( $beer )
+	{
+		return $beer--;
+	}
+
+}
+```
 
 If you have multiple items to process from your task runner, simply load one data item at a time, run your processing, update the `$task->data` property with information about where you left off, and let the function return. If there is still time left for the backend process to do more, the action will be triggered again, and your function will be given back the `$task` object to do more work.
 

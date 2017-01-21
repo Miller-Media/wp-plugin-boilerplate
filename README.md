@@ -9,8 +9,8 @@ Welcome to the boilerplate plugin using Modern Wordpress. This boilerplate can b
 * [Using javascript modules](#javascript-module-programming)
 * [Using database records](#database-records)
 * Using task queues
-* Persistent plugin data caching
-* Plugin convenience methods
+* Using persistent data caching
+* Writing tests
 
 # Rundown
 * All of your plugin classes will be namespaced with your **\VendorName\PackageName** prefix.
@@ -301,3 +301,76 @@ $record = \VendorName\PackageName\TableData::load( $new_record_id );
 $record->delete();
 ```
 
+## Task Queues
+You can leverage the task runner built into modern wordpress to run cron type tasks or run background processing tasks. To use the task runner:
+
+```php
+use \Modern\Wordpress\Task;
+
+// Sample configuration for your task. The only required option is an 'action' hook
+$config = array
+(
+	// Action Hook
+	// (required) the action which will be fired when this task is ran
+	// i.e. register your callback using @Wordpress\Action( for="my_task_action" )
+	'action' => 'my_task_action',
+	
+	// Identification Tag
+	// (optional) a tag which you can use to look up or delete this task later
+	'tag' => 'identifier_tag',
+	
+	// Task Priority
+	// (optional) a higher priority means it will be ran before lower priority tasks
+	// defaults to 5 if not specified
+	'priority' => 5,
+	
+	// Start Time
+	// (optional) a timestamp that indicates a time that this task should wait to 
+	// start next. It may not start exactly at this time, but it will not start any
+	// earlier.
+	'next_start' => time(),
+);
+
+// Data to be passed into your callback hook when the task is ran
+$data = array( 'times_to_run' => 100 );
+
+// Setup the task runner
+Task::queueTask( $config, $data );
+
+/**
+ * Count tasks from queue based on action and or tag
+ *
+ * @param	string		$action			Count all tasks with specific action|NULL to ignore
+ * @param	string		$tag			Count all tasks with specific tag|NULL to ignore
+ * @return	void
+ */
+$total = Task::countTasks( 'my_task_action', 'identifier_tag' );
+
+/**
+ * Delete tasks from queue based on action and or tag
+ *
+ * @param	string		$action			Delete all tasks with specific action
+ * @param	string		$tag			Delete all tasks with specific tag
+ * @return	void
+ */
+Task::deleteTasks( 'my_task_action', 'unwanted_task_id' );
+```
+
+When a task is ran, the action you specified in your task configuration is triggered via wordpress core. Therefore, any functions you have attached to it will be executed with the only parameter being the `$task` object.
+
+If you have multiple items to process from your task runner, simply load one data item at a time, run your processing, update the `$task->data` property with information about where you left off, and let the function return. If there is still time left for the backend process to do more, the action will be triggered again, and your function will be given back the `$task` object to do more work.
+
+If the script processing time is approaching its timeout, the framework will automatically save your task state and continue processing at a later time.
+
+If you want to tell the framework that your task is complete and allow it to be removed, simply do the following:
+
+```php
+return $task->complete();
+```
+
+If you want to postpone processing until a future date/time, or set up the next cycle for your task without telling the system to remove it, just set the `next_start` property on the task and return from the function. This will cause the framework to stop calling your task callback until the next start time is reached.
+```php
+// start back up in 24 hours
+$task->next_start = time() + ( 60 * 60 * 24 );
+return;
+```

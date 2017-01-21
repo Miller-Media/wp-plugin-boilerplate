@@ -9,7 +9,7 @@ Welcome to the boilerplate plugin using Modern Wordpress. This boilerplate can b
 * [Using javascript modules](#javascript-module-programming)
 * [Using database records](#database-records)
 * [Using task queues](#task-queues)
-* Writing tests
+* [Unit testing your plugin](#testing-your-plugin)
 
 # Rundown
 * All of your plugin classes will be namespaced with your **\VendorName\PackageName** prefix.
@@ -438,7 +438,7 @@ $task->next_start = time() + ( 60 * 60 * 24 );
 return;
 ```
 
-## Writing Tests
+## Testing Your Plugin
 You can write unit and functional tests for your plugin by following the example test case in the boilerplate located at `/tests/test-plugin.php`. Tests can all be added to the provided test class, or new test classes with individual test cases can be created and placed in the `/tests` subfolder of your plugin.
 
 To run the tests, you will use the WP CLI and the testing framework. More information can be found at [http://wp-cli.org/docs/plugin-unit-tests/](http://wp-cli.org/docs/plugin-unit-tests/).

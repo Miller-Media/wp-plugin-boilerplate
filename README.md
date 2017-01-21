@@ -8,7 +8,7 @@ Welcome to the boilerplate plugin using Modern Wordpress. This boilerplate can b
 * [Using stylesheets and scripts](#stylesheets-and-scripts)
 * [Using javascript modules](#javascript-module-programming)
 * [Using database records](#database-records)
-* Using task queues
+* [Using task queues](#task-queues)
 * Using persistent data caching
 * Writing tests
 

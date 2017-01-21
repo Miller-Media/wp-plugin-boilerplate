@@ -4,7 +4,7 @@ Welcome to the boilerplate plugin using Modern Wordpress. This boilerplate can b
 * [Creating PHP Classes](#php-classes)
 * [Using templates](#html-templating)
 * [Using settings](#plugin-settings)
-* Using widgets
+* [Using widgets](#widgets)
 * [Using stylesheets and scripts](#stylesheets-and-scripts)
 * [Using javascript modules](#javascript-module-programming)
 * [Using database records](#database-records)
@@ -87,6 +87,9 @@ $value = "Hello Dollie.";
 $template_content = $this->getPlugin()->getTemplateContent( 'views/template-name', array( 'varname' => $value ) );
 ```
 
+### Overriding templates in themes
+Templates from your plugin can be overridden in wordpress themes by placing a copy of the template file in the themes `/templates` subdirectory in a folder with the same name as your plugin slug. As an example, the template described above would be overriden by:<br> `/wp-content/themes/theme-name/templates/myplugin-slug/views/template-name.php`  
+
 ## Plugin Settings
 Your plugin includes a bootstrapped settings class that you can use to easily add a new settings to your plugin. It's located at `/classes/Settings.php`.
 
@@ -112,6 +115,38 @@ if ( $setting_value == 'Hello Dollie.' ) {
     $this->getPlugin()->setSetting( 'setting2', 'Hello Dandy.' );
     $this->getPlugin()->getSettings()->saveSettings();
 }
+```
+## Widgets
+Modern wordpress provides a bootstrap class that you can extend to add widgets to your plugin. To create a new widget, add a new class that extends `\Modern\Wordpress\Plugin\Widget`. Then enable it for your plugin.
+
+```php
+namespace VendorName\PackageName;
+
+class WidgetClass extends \Modern\Wordpress\Plugin\Widget
+{
+ 	// Required property
+	protected static $plugin;
+	
+	// Widget name
+	public $name = 'Hello Widget';
+	
+	// Widget description
+	public $description = 'A widget to greet the world.';
+	
+	// Widget output
+	public function widget( $args, $instance ) 
+	{
+		echo $this->getPlugin()->getTemplateContent( 'views/template-name' );
+	}
+}
+
+```
+
+Enable the widget for your plugin like this:
+
+```php
+$plugin = \VendorName\PackageName\Plugin::instance();
+\VendorName\PackageName\WidgetClass::enableOn( $plugin );
 ```
 
 ## Stylesheets and Scripts

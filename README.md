@@ -245,7 +245,7 @@ Use the WP CLI to add the table name (without the wp_ prefix) to your plugin met
 
 If you have multiple tables to track, include all their names separated by commas.
 ```
-$ wp mwp update-meta myplugin-slug --tables="table_name"
+$ wp mwp update-meta myplugin-slug --tables="table1,table2"
 ```
 
 ### Create a new PHP class for your active record

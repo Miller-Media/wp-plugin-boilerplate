@@ -371,7 +371,7 @@ if ( $form->isValidSubmission() )
 	
 	// do something with $email_address...
 	
-	// Complete the form processing, allowing hooks to execute
+	// Complete the form processing, allowing other hooks to participate
 	$form->processComplete( function() {
 		wp_redirect( home_url() );
 	});

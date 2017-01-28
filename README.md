@@ -468,9 +468,9 @@ class MyClass
 }
 ```
 
-If you have multiple items to process from your task runner, simply load one data item at a time, run your processing, update the `$task->data` property with information about where you left off, and let the function return. If there is still time left for the backend process to do more, the action will be triggered again, and your function will be given back the `$task` object to do more work.
+If you have multiple items to process in your task runner, such as the example above, only process one item at a time in your function. Then update the `$task->data` property with information about where you are at in your processing, and let the function return. If there is still time left in the request for your task runner to do more work, the action will be triggered again, and your function will be given back the current `$task` object to do more work.
 
-If the script processing time is approaching its timeout, the framework will automatically save your task state and continue processing at a later time.
+This way, if the script processing time is approaching its timeout, the framework will be able to automatically save your task state and continue processing it at a later time.
 
 If you want to tell the framework that your task is complete and allow it to be removed, simply do the following:
 
@@ -479,6 +479,7 @@ return $task->complete();
 ```
 
 If you want to postpone processing until a future date/time, or set up the next cycle for your task without telling the system to remove it, just set the `next_start` property on the task and return from the function. This will cause the framework to stop calling your task callback until the next start time is reached.
+
 ```php
 // start back up in 24 hours
 $task->next_start = time() + ( 60 * 60 * 24 );

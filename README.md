@@ -377,7 +377,8 @@ if ( $form->isValidSubmission() )
 	});
 }
 
-// Output the form
+// The form has either not been submitted, or contains errors.
+// Either way, its appropriate to render it
 echo $form->render();
 ```
 

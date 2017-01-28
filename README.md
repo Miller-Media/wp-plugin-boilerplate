@@ -373,7 +373,6 @@ if ( $form->isValidSubmission() )
 	
 	// Complete the form processing, allowing hooks to execute
 	$form->processComplete( function() {
-		// redirect to home
 		wp_redirect( home_url() );
 	});
 }

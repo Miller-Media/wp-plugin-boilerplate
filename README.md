@@ -216,7 +216,7 @@ var mainController = mwp.controller( 'controller-name',
 ```
 **Brief explanation of what's going on here:**<br>
 * `mwp.controller()` is registering the controller by the name of `controller-name` with modern wordpress.
-* The `init()` function is called on the controller automatically when the page has loaded.
+* The `init()` function is always called on each controller automatically when the page has loaded.
 * The `viewModel` property of the controller is what is exposed to your HTML for data bindings.
 * The `ko.observable()` wrapper is what allows your HTML to automatically update when that value changes. **Note:** The `setting1` property of the view model is not an actual value, but a function that returns/sets a value.
 

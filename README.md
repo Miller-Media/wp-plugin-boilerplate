@@ -371,8 +371,11 @@ if ( $form->isValidSubmission() )
 	
 	// do something with $email_address...
 	
-	// redirect to homepage
-	wp_redirect( home_url() );
+	// Complete the form processing, allowing hooks to execute
+	$form->processComplete( function() {
+		// redirect to home
+		wp_redirect( home_url() );
+	});
 }
 
 // Output the form

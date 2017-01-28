@@ -344,7 +344,7 @@ Here is a complete example of how to build and process the data using the modern
 /* somewhere in php user land... */
 
 // Create a form container
-$form = new \Modern\Wordpress\Helper\Form( 'plugin_data_form' );
+$form = new \Modern\Wordpress\Helper\Form( 'myplugin_collect_email_address' );
 
 // Add a text field
 $form->addField( array(

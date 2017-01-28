@@ -342,9 +342,10 @@ Modern wordpress can help you build and process the data from submitted forms. B
 Here is a complete example of how to build and process the data using the modern wordpress form helper:
 ```php
 /* somewhere in php user land... */
+$plugin = \VendorName\PackageName\Plugin::instance();
 
 // Create a form container
-$form = new \Modern\Wordpress\Helper\Form( 'myplugin_collect_email_address' );
+$form = $plugin->createForm( 'collect_email_address' );
 
 // Add a text field
 $form->addField( array(

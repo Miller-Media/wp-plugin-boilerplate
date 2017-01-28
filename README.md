@@ -8,6 +8,7 @@ Welcome to the boilerplate plugin using Modern Wordpress. This boilerplate can b
 * [Using stylesheets and scripts](#stylesheets-and-scripts)
 * [Using javascript modules](#javascript-module-programming)
 * [Using database records](#database-records)
+* [Using the form helper](#form-helper)
 * [Using task queues](#task-queues)
 * [Unit testing your plugin](#testing-your-plugin)
 
@@ -333,6 +334,48 @@ $total = \VendorName\PackageName\TableData::countWhere( array( "name=%s", "Dolli
 // Delete a record
 $record = \VendorName\PackageName\TableData::load( $new_record_id );
 $record->delete();
+```
+
+## Form Helper
+Modern wordpress can help you build and process the data from submitted forms. Behind the scenes, it uses the [Piklist framework](https://piklist.com/learn/section/fields/) to construct form fields. Therefore, the available fields and their configuration parameters are the same as what is documented on the Piklist website.
+
+Here is a complete example of how to build and process the data using the modern wordpress form helper:
+```php
+// somewhere in php user land
+
+// Create a form container
+$form = new \Modern\Wordpress\Helper\Form( 'plugin_data_form' );
+
+// Add a text field
+$form->addField( array(
+	'type' => 'text',
+	'field' => 'my_email_field',
+	'label' => 'Enter your email address',
+	'required' => true,
+	'sanitize' => array(
+		array( 'type' => 'text_field' ),
+	),
+	'validate' => array(
+		array( 'type' => 'email' ),
+	),
+) );
+
+// Check if form has a valid submission
+if ( $form->isValidSubmission() )
+{
+	// Get values from form
+	$values = $form->getValues();
+	
+	$email_address = $values[ 'my_email_field' ];
+	
+	// do something with $email_address...
+	
+	// redirect to homepage
+	wp_redirect( home_url() );
+}
+
+// Output the form
+echo $form->render();
 ```
 
 ## Task Queues

@@ -339,7 +339,7 @@ $record->delete();
 ## Form Helper
 Modern wordpress can help you build and process the data from submitted forms. Behind the scenes, it uses the [Piklist framework](https://piklist.com/learn/section/fields/) to construct form fields. Therefore, the available fields and their configuration parameters are the same as what is documented on the Piklist website.
 
-Here is a complete example of how to build and process the data using the modern wordpress form helper:
+Here is an example of how to build and process the data using the modern wordpress form helper:
 ```php
 /* somewhere in php user land... */
 $plugin = \VendorName\PackageName\Plugin::instance();

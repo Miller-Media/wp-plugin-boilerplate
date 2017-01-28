@@ -7,7 +7,8 @@ Welcome to the boilerplate plugin using Modern Wordpress. This boilerplate can b
 * [Using widgets](#widgets)
 * [Using stylesheets and scripts](#stylesheets-and-scripts)
 * [Using javascript modules](#javascript-module-programming)
-* [Using database records](#database-records)
+* [Using active records](#database-records)
+* [Using display tables](#active-record-display-tables)
 * [Using the form helper](#form-helper)
 * [Using task queues](#task-queues)
 * [Unit testing your plugin](#testing-your-plugin)
@@ -334,6 +335,48 @@ $total = \VendorName\PackageName\TableData::countWhere( array( "name=%s", "Dolli
 // Delete a record
 $record = \VendorName\PackageName\TableData::load( $new_record_id );
 $record->delete();
+```
+
+## Active Record Display Tables
+If you want to display a table in the WP Admin that the end user can use to view and manage the active records of a given type, then modern wordpress provides a convenient ActiveRecordTable helper for active records, and factory method that you can use to access it. Here is an example of how you can create a display table:
+
+```php
+
+use VendorName\PackageName\TableData; // The active record class
+
+// Create an instance of the table helper
+$table = TableData::createDisplayTable();
+
+// Allow bulk actions to be applied to the records.
+// In this example, the 'delete()' method will be called on each selected record
+$table->bulkActions = array( 'delete' => 'Delete' );
+
+// Specify the table columns that should be outputted to the table
+$table->columns = array( 'name' => 'Persons Name', 'salutation' => 'Favorite Greeting', 'friends' => 'Number of friends' );
+
+// Specify the amount of records to show per page
+$table->perPage = 20;
+
+// Specify the default sort options
+$table->sortBy = "friends";
+$table->sortOrder = "DESC";
+
+// Specify output handlers to process the display output for specific columns.
+// If no handler is specified for a column, its raw content will be outputted.
+$table->handlers = array(
+	'friends' => function( $record ) {
+		if ( $record[ 'friends' ] == 0 ) {
+			return "Oops, no friends yet!";
+		}
+		return $record[ 'friends' ];
+	},
+);
+
+// Prepare the items in the table. Only display people with 0 or more friends.
+$table->prepare_items( array( "friends >= %d", 0 ) );
+
+// Output the table
+$table->display();
 ```
 
 ## Form Helper

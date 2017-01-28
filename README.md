@@ -462,7 +462,7 @@ class MyClass
 	
 	public function drinkSome( $beer )
 	{
-		return $beer--;
+		return $beer - 1;
 	}
 
 }

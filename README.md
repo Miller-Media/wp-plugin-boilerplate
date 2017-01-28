@@ -341,7 +341,7 @@ Modern wordpress can help you build and process the data from submitted forms. B
 
 Here is a complete example of how to build and process the data using the modern wordpress form helper:
 ```php
-// somewhere in php user land
+/* somewhere in php user land... */
 
 // Create a form container
 $form = new \Modern\Wordpress\Helper\Form( 'plugin_data_form' );

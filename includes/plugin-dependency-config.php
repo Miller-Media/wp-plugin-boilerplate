@@ -13,7 +13,7 @@ add_action( 'tgmpa_register', function()
 		array( 
 			'name'             => 'Modern Framework for Wordpress',
 			'slug'             => 'modern-framework',
-			'source'           => 'https://github.com/Miller-Media/modern-wordpress/raw/master/builds/modern-framework-latest-stable.zip',
+			'source'           => 'https://github.com/Miller-Media/modern-wordpress/raw/master/builds/modern-framework-stable.zip',
 			'required'         => true,
 			'force_activation' => true,
 		),

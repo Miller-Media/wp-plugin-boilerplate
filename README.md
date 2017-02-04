@@ -89,7 +89,7 @@ $template_content = $this->getPlugin()->getTemplateContent( 'views/template-name
 ```
 
 ### Overriding templates in themes
-Templates from your plugin can be overridden in wordpress themes by placing a copy of the template file in the themes `/templates` subdirectory in a folder with the same name as your plugin slug. As an example, the template described above would be overriden by:<br> `/wp-content/themes/theme-name/templates/myplugin-slug/views/template-name.php`  
+Templates from your plugin can be overridden in wordpress themes by placing a copy of the template file in the themes `/templates` subdirectory in a folder with the same name as your plugin slug. As an example, the template described above would be overriden by:<br> `/wp-content/themes/theme-name/myplugin-slug/views/template-name.php`  
 
 ## Plugin Settings
 Your plugin includes a bootstrapped settings class that you can use to easily add a new settings to your plugin. It's located at `/classes/Settings.php`.

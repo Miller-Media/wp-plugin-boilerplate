@@ -95,7 +95,7 @@ Templates from your plugin can be overridden in wordpress themes by placing a co
 Your plugin includes a bootstrapped settings class that you can use to easily add a new settings to your plugin. It's located at `/classes/Settings.php`.
 
 ### Add a new setting:
-*Here we are adding a setting named 'setting1' using annotations.*
+*Here we are adding a setting named 'setting1' using [annotations](https://github.com/Miller-Media/modern-wordpress/wiki/@Annotations).*
 ```php
 /**
  * ...

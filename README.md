@@ -49,6 +49,16 @@ class MyClass extends \Modern\Wordpress\Pattern\Singleton
      * @var object	All singletons must define this property
      */
     protected $_instance;
+    
+    /**
+     * Initialize
+     *
+     * @return	void
+     */
+    protected function init()
+    {
+    	// initialization routine when the instance is first created
+    }
 }
 ```
 

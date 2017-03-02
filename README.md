@@ -48,7 +48,7 @@ class MyClass extends \Modern\Wordpress\Pattern\Singleton
     /**
      * @var object	All singletons must define this property
      */
-    protected $_instance;
+    protected static $_instance;
     
     /**
      * Initialize

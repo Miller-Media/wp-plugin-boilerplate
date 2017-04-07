@@ -9,15 +9,7 @@ include_once 'class-tgm-plugin-activation.php';
 add_action( 'tgmpa_register', function() 
 {
 	$base_dir = dirname( dirname( __FILE__ ) );
-	$dependencies = array(
-		array( 
-			'name'             => 'Modern Framework for Wordpress',
-			'slug'             => 'modern-framework',
-			'source'           => 'https://github.com/Miller-Media/modern-wordpress/raw/master/builds/modern-framework-stable.zip',
-			'required'         => true,
-			'force_activation' => true,
-		),
-	);
+	$dependencies = array();
 	
 	if ( file_exists( $base_dir . '/data/plugin-dependencies.php' ) )
 	{

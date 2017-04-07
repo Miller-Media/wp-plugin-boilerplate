@@ -15,12 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 /* Load Only Once */
 if ( ! class_exists( 'BoilerplatePlugin' ) )
 {
-	/* Autoloader */
-	require_once 'vendor/autoload.php';
-
-	/* Register plugin dependencies */
-	include_once 'includes/plugin-dependency-config.php';
-	
 	class BoilerplatePlugin
 	{
 		public static function init()
@@ -53,6 +47,17 @@ if ( ! class_exists( 'BoilerplatePlugin' ) )
 			}
 		}
 	}
+	
+	/* Autoload Classes */
+	require_once 'vendor/autoload.php';
+	
+	/* Bundled Framework */
+	if ( file_exists( __DIR__ . '/framework/plugin.php' ) ) {
+		include_once 'framework/plugin.php';
+	}
+
+	/* Register plugin dependencies */
+	include_once 'includes/plugin-dependency-config.php';
 	
 	/* Register plugin status notice */
 	add_action( 'after_plugin_row_' . plugin_basename( __FILE__ ), array( 'BoilerplatePlugin', 'status' ) );

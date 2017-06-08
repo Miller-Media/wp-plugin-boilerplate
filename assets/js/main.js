@@ -8,8 +8,6 @@
  * @since      {build_version}
  */
 
-"use strict";
-
 /**
  * Controller Design Pattern
  *
@@ -18,6 +16,8 @@
  */
 (function( $, undefined ) {
 	
+	"use strict";
+
 	/**
 	 * Main Controller
 	 *

@@ -6,8 +6,7 @@ builds
 composer.json
 composer.lock
 phpunit.xml.dist
-tests/bootstrap.php
-tests/test-sample.php
+tests
 bin
 vendor/bin
 

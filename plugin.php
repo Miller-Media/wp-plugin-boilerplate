@@ -1,11 +1,12 @@
 <?php
 /**
  * Plugin Name: {plugin_name}
- * Depends: lib-modern-framework
+ * Plugin URI: {plugin_url}
  * Description: {plugin_description}
- * Version: 0.0.0
  * Author: {plugin_author}
  * Author URI: {plugin_author_url}
+ * Depends: lib-modern-framework
+ * Version: 0.0.0
  */
  
 if ( ! defined( 'ABSPATH' ) ) {

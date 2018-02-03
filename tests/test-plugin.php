@@ -19,19 +19,6 @@ if ( ! class_exists( 'WP_UnitTestCase' ) )
 class BoilerplatePluginTest extends WP_UnitTestCase 
 {
 	/**
-	 * Load Modern Wordpress Framework
-	 */
-	public function __construct()
-	{
-		if ( ! file_exists( WP_PLUGIN_DIR . '/modern-framework/plugin.php' ) )
-		{
-			die( 'Error: You must first install the Modern Wordpress Framework plugin to your test suite to run tests on this plugin.' );
-		}
-		
-		require_once WP_PLUGIN_DIR . '/modern-framework/plugin.php';
-	}
-
-	/**
 	 * Test that the plugin is a modern wordpress plugin
 	 */
 	public function test_plugin_class() 
